@@ -16,7 +16,8 @@ object Dependencies {
   import Resolvers._
   import Versions._
 
-  val guava        = "com.google.guava"  % "guava"          % Versions.guava
+  val rainbow      = "pl.project13.scala" %% "rainbow"        % "0.1"
+  val guava        = "com.google.guava"    % "guava"          % Versions.guava
 
   // testing
   val scalaTest = "org.scalatest"    %% "scalatest"      % "1.7.RC1" % "test"
@@ -29,7 +30,7 @@ object BuildSettings {
   import Dependencies._
 
   val generalDependencies = Seq(
-    guava,
+    rainbow, guava,
     scalaTest, mockito
   )
   

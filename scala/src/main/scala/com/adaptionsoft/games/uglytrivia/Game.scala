@@ -3,7 +3,8 @@ package com.adaptionsoft.games.uglytrivia
 import java.util.{LinkedList, ArrayList}
 
 
-class Game {
+class Game(println: (String) => Unit) {
+
   var players: ArrayList[String] = new ArrayList[String]
   var places: Array[Int] = new Array[Int](6)
   var purses: Array[Int] = new Array[Int](6)

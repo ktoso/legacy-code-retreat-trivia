@@ -1,19 +1,20 @@
 package com.adaptionsoft.games.trivia.runner
 
 import com.adaptionsoft.games.uglytrivia.Game
-import java.util.Random
 
+object GameRunner extends GameRunner(println = Predef.println(_))
 
-object GameRunner {
+class GameRunner(println: (String) => Unit) {
+
   var notAWinner = false
 
-  def main(args: Array[String]) {
-    var aGame = new Game();
-    aGame.add("Chet")
-    aGame.add("Pat")
-    aGame.add("Sue")
+  lazy val rand = new java.util.Random
 
-    var rand: Random = new Random
+  def main(args: Array[String]) {
+    var aGame = new Game(println = println)
+    aGame.add("Chet")
+    aGame.add("Pat ")
+    aGame.add("Sue")
 
     do {
       aGame.roll(rand.nextInt(5) + 1)
