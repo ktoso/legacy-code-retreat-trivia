@@ -1,10 +1,15 @@
 ﻿#include <stdlib.h>
+#include <stdio.h>
 #include "Game.h"
 
 static bool notAWinner;
 
-int main()
+int main(int argc, char **args)
 {
+    if (argc > 1) {
+        int seed = atoi(args[1]);
+        srand(seed);
+    }
 	Game aGame;
 
 	aGame.add("Chet");
