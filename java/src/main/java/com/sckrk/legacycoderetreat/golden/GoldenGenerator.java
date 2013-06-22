@@ -13,11 +13,20 @@ public class GoldenGenerator {
   private static boolean notAWinner;
 
   public static void main(String[] args) throws IOException {
-    int seed = Integer.parseInt(args[0]);
+    int from  = Integer.parseInt(args[0]);
+    int upto = Integer.parseInt(args[1]);
+    String dir = args[2];
 
+    for (int seed = from; seed < upto; seed++) {
+      generate(seed, dir);
+      System.out.print(".");
+    }
+  }
+
+  private static void generate(int seed, String dir) throws IOException {
     Random random = new Random(seed);
 
-    File golden = new File(String.format("./%s", args[1]));
+    File golden = new File(String.format("./%s", dir));
     File target = new File(golden, String.format("%d.out", seed));
     Files.createParentDirs(target);
     target.createNewFile();
